@@ -28,7 +28,7 @@ spring:
     vectorstore:
       chroma:
         client:
-          host: https://yamanote.proxy.rlwy.net
+          host: https://chromavectordb.fly.dev/
           port: 8000
         initialize-schema: true
         collection-name: image_collection
