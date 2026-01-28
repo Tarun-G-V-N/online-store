@@ -1,0 +1,45 @@
+server:
+  port: 5000
+api:
+  version: /api/v1
+spring:
+  application:
+    name: onlineStore
+  datasource:
+    url: jdbc:mysql://onlinestore-db.czie2wsk6lrz.ap-south-1.rds.amazonaws.com:3306/onlineStoreDB
+    username: root
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  ai:
+    openai:
+      api-key: ${OPEN_API_KEY}
+    vectorstore:
+      chroma:
+        client:
+          host: http://35.154.156.41
+          port: 8000
+        initialize-schema: true
+        collection-name: image_collection
+        database-name: default_database
+        tenant-name: default_tenant
+auth:
+  token:
+    accessExpirationInMills: 300000
+    refreshExpirationInMills: 2592000000
+    jwtSecret: ${JWT_SECRET}
+app:
+  useSecureCookie: false
+stripe:
+  secret:
+    key: ${STRIPE_SECRET_KEY}

@@ -1,0 +1,34 @@
+import React, {useEffect, useState} from 'react'
+import ImageZoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
+
+const ImageZoomify = ({productId}) => {
+
+    const[productImage, setProductImage] = useState(null);
+    
+    useEffect(() => {
+        const fetchProductImage = async (id) => {
+        try {
+        const baseUrl = import.meta.env.VITE_API_BASE_URL;
+        const response = await fetch(`${baseUrl}/images/image/${id}/download`);
+        const blob = await response.blob();
+        const reader = new FileReader();
+        reader.onloadend = () => {setProductImage(reader.result);};
+        reader.readAsDataURL(blob);
+        } catch (error) {
+            console.error("Error fetching product image:", error);
+        }
+    };
+    if (productId) fetchProductImage(productId);
+    }, [productId]);
+
+    if (!productImage) return null;
+
+  return (
+    <ImageZoom>
+        <img src={productImage} alt="Product Image" className='resized-image'/>
+    </ImageZoom>
+  )
+}
+
+export default ImageZoomify

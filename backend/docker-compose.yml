@@ -1,0 +1,13 @@
+services:
+  chromadb:
+    image: ghcr.io/chroma-core/chroma:1.0.0
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/data
+    environment:
+      - IS_PERSISTENT=TRUE
+volumes:
+  chroma_data:
+    driver: local

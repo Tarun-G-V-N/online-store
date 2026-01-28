@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-server
+spec:
+  selector:
+    matchLabels:
+      app: backend-server
+  template:
+    metadata:
+      labels:
+        app: backend-server
+    spec:
+      containers:
+        - name: backend-server
+          image: 730335183084.dkr.ecr.ap-south-1.amazonaws.com/online-store:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql:3306/onlineStore_db
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root123
+            - name: CHROMA_URL
+              value: http://chroma:8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-server
+spec:
+  selector:
+    app: backend-server
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
