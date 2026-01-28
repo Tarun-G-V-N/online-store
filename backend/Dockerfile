@@ -2,7 +2,11 @@
 FROM eclipse-temurin:17-jdk-jammy AS build
 
 WORKDIR /build
-COPY . .
+COPY pom.xml .
+COPY .mvn .mvn
+COPY mvnw .
+RUN chmod +x mvnw
+COPY src src
 RUN ./mvnw clean package -DskipTests
 
 # ---------- runtime stage ----------
