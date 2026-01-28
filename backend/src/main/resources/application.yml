@@ -7,7 +7,7 @@ spring:
     name: onlineStore
   datasource:
 #    url: jdbc:mysql://onlinestore-db.czie2wsk6lrz.ap-south-1.rds.amazonaws.com:3306/onlineStoreDB
-    url: jdbc:mysql://root:TPtguJOotUCmAugIfcajYPLwtuhEdpRp@turntable.proxy.rlwy.net:31730/railway
+    url: jdbc:mysql://turntable.proxy.rlwy.net:31730/railway
     username: root
     password: ${DATABASE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
