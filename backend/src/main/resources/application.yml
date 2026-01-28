@@ -27,10 +27,7 @@ spring:
       api-key: ${OPEN_API_KEY}
     vectorstore:
       chroma:
-        client:
-#          host: https://chromavectordb.fly.dev/
-#          port: 8000
-        url: https://chromavectordb.fly.dev
+        base-url: https://chromavectordb.fly.dev
         initialize-schema: true
         collection-name: image_collection
         database-name: default_database
