@@ -27,7 +27,7 @@ spring:
     vectorstore:
       chroma:
         base-url: https://chromavectordb.fly.dev
-        initialize-schema: true
+        initialize-schema: false
         collection-name: image_collection
         database-name: default_database
         tenant-name: default_tenant
@@ -51,6 +51,6 @@ management:
       show-details: never
 logging:
   level:
-    root: DEBUG
+    root: ERROR
     com.zaxxer.hikari: ERROR
     org.springframework.jdbc: ERROR
