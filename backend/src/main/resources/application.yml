@@ -27,7 +27,7 @@ spring:
     vectorstore:
       chroma:
         base-url: https://chromavectordb.fly.dev
-        initialize-schema: false
+        initialize-schema: true
         collection-name: image_collection
         database-name: default_database
         tenant-name: default_tenant

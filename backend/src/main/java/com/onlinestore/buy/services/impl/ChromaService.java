@@ -31,9 +31,9 @@ public class ChromaService implements IChromaService {
     private final ChromaVectorStore chromaVectorStore;
     private final LLMService llmService;
 
-    @Value("default_tenant")
+    @Value("${spring.ai.vectorstore.chroma.tenant-name}")
     private String tenantName;
-    @Value("default_database")
+    @Value("${spring.ai.vectorstore.chroma.database-name}")
     private String databaseName;
 
     @Override
