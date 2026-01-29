@@ -10,6 +10,7 @@ spring:
     url: ${MYSQL_URL}
     username: ${MYSQLUSER}
     password: ${MYSQLPASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -26,8 +27,8 @@ spring:
       api-key: ${OPEN_API_KEY}
     vectorstore:
       chroma:
-        base-url: https://chromavectordb.fly.dev
-        initialize-schema: true
+        base-url: http://chromavectordb.fly.dev
+        initialize-schema: false
         collection-name: image_collection
         database-name: default_database
         tenant-name: default_tenant
@@ -49,8 +50,8 @@ management:
   endpoint:
     health:
       show-details: never
-logging:
-  level:
-    root: DEBUG
-    com.zaxxer.hikari: ERROR
-    org.springframework.jdbc: ERROR
+#logging:
+#  level:
+#    root: DEBUG
+#    com.zaxxer.hikari: ERROR
+#    org.springframework.jdbc: ERROR
