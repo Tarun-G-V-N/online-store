@@ -8,8 +8,8 @@ spring:
     name: onlineStore
   datasource:
     url: ${MYSQL_URL}
-    username: ${MYSQL_USERNAME}
-    password: ${MYSQL_PASSWORD}
+    username: ${MYSQLUSER}
+    password: ${MYSQLPASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
@@ -52,5 +52,5 @@ management:
 logging:
   level:
     root: DEBUG
-    com.zaxxer.hikari: DEBUG
-    org.springframework.jdbc: DEBUG
+    com.zaxxer.hikari: ERROR
+    org.springframework.jdbc: ERROR
