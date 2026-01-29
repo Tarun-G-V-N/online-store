@@ -6,10 +6,7 @@ spring:
   application:
     name: onlineStore
   datasource:
-#    url: jdbc:mysql://onlinestore-db.czie2wsk6lrz.ap-south-1.rds.amazonaws.com:3306/onlineStoreDB
-    url: jdbc:mysql://turntable.proxy.rlwy.net:31730/railway
-    username: root
-    password: ${DATABASE_PASSWORD}
+    url: ${MYSQL_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -42,3 +39,11 @@ app:
 stripe:
   secret:
     key: ${STRIPE_SECRET_KEY}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
